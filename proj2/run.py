@@ -285,7 +285,7 @@ cat_val = json.dumps({"table":{"namespace":"default", "name":"tbl_users_crossed_
 "limit_crossed_cnt":{"cf":"ericcson7","col":"terminated_count","type":"string"}}})
 
 
-df=sqlContext.read.option("catalog",cat_main).option("newtable","2").format("org.apache.spark.sql.execution.datasources.hbase").load()
+df=sqlContext.read.option("catalog",cat_main).option("newtable","2").format("org.apache.spark.sql.execution.datasources.hbase").option("zkUrl", "localhost:2182").load()
 
 df.registerTempTable("tim_ericcson_bulk")
 
